@@ -9,4 +9,6 @@ import com.mindtree.shoppingcart.entities.Product;
 
 public interface ProductsRepository extends JpaRepository<Product, Integer> {
 	List<Product> fetchByProductName(@Param("productName") String productName);
+	List<Product>findByBookCategory();
+	List<Product>findByApparalCategory();
  }

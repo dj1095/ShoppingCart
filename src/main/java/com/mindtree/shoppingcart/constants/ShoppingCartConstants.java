@@ -29,4 +29,13 @@ public class ShoppingCartConstants {
 	 */
 	public static final String PRODUCT_NOT_FOUND = "Product Not Found: ";
 
+	/**
+	 * NO_ITEMS_IN_THIS_CATEGORY.
+	 */
+	public static final String NO_ITEMS_IN_THIS_CATEGORY = "No Items Present In this Category";
+	/**
+	 * NO_CATEGORY_FOUND_WITH_NAME.
+	 */
+	public static final String NO_CATEGORY_FOUND_WITH_NAME = "No Category Found with name:";
+
 }

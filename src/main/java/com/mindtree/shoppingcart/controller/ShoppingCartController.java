@@ -39,7 +39,7 @@ public class ShoppingCartController {
 	/**
 	 * logger
 	 */
-	private Logger logger = LoggerFactory.getLogger(ShoppingCartController.class);
+	private static Logger LOGGER = LoggerFactory.getLogger(ShoppingCartController.class);
 
 	/**
 	 * cartService.
@@ -65,7 +65,7 @@ public class ShoppingCartController {
 		try {
 			addedUser = userService.addUser(user);
 		} catch (InvalidUserException e) {
-			logger.error(e.getMessage(), e);
+			LOGGER.error(e.getMessage(), e);
 		}
 		return addedUser;
 	}

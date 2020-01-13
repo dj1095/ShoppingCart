@@ -14,16 +14,12 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.mindtree.shoppingcart.entities.Product;
+import com.mindtree.shoppingcart.exceptions.CategoryNotFoundException;
 import com.mindtree.shoppingcart.exceptions.ProductNotFoundException;
 import com.mindtree.shoppingcart.service.ProductService;
 
 @RestController
 public class ProductController {
-
-	/**
-	 * logger
-	 */
-	private Logger logger = LoggerFactory.getLogger(ProductController.class);
 
 	/**
 	 * productsrepo.
@@ -40,11 +36,18 @@ public class ProductController {
 	}
 	
 	@GetMapping(path="/product/name/{productName}")
-	public List<Product> searchProductByName(
+	public List<Product> searchProductByName(@Valid
 			@PathVariable 
 			@Size(min=1,message="Minimum One Character Required") 
 			String productName) throws ProductNotFoundException {
 				return productService.fetchProductByName(productName);
+	}
+	
+	@GetMapping(path = "/product/{category}")
+	public List<Product> searchProductByCategory(@Valid 
+						@PathVariable String category)
+			throws ProductNotFoundException, CategoryNotFoundException {
+		return productService.fetchProductByCategory(category);
 	}
 
 }
